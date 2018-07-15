@@ -8,7 +8,11 @@ db = psycopg2.connect(database='test', user='postgres', password='10b10b', host=
 cursor = db.cursor()
 cursor.execute("SELECT VERSION()")
 data = cursor.fetchone()
-print("\nversion: %s" % data)
+print("\nversion: %s\n" % data)
+
+cursor.execute("select * from tab1")
+rows = cursor.fetchall()
+print(rows)
 
 cursor.close()
 db.close()
